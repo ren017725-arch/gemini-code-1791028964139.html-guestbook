@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صحيفة الابتدائية 351 والروضة الملحقة بها الرقمية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-gold: #c59b27;
+            --dark-gold: #8e6812;
+            --light-gold: #f9f5e8;
+            --accent-green: #1d5238;
+            --accent-green-hover: #133926;
+            --warm-bg: #fcfbfa;
+            --card-bg: #ffffff;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --border-color: #e2d7c3;
+            --shadow-sm: 0 4px 15px rgba(142, 104, 18, 0.08);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--warm-bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            background-image: radial-gradient(#e8dfcd 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hero-banner-container {
+            width: 100%;
+            background: linear-gradient(180deg, #f3ebda 0%, #fcfbfa 100%);
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .hero-banner-img {
+            max-width: 95%;
+            width: 1000px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border-color);
+        }
+
+        .top-meta-bar {
+            background-color: var(--accent-green);
+            color: #ffffff;
+            padding: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .top-meta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-nav {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-item a {
+            display: block;
+            padding: 16px 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent-green);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary-gold);
+            background-color: var(--light-gold);
+            border-bottom-color: var(--primary-gold);
+        }
+
+        .ticker-bar {
+            display: flex;
+            align-items: center;
+            background: #0f382c;
+            color: #ffffff;
+            height: 45px;
+            overflow: hidden;
+            direction: rtl;
+            border-bottom: 2px solid #d4af37;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .ticker-title {
+            background: #d4af37;
+            color: #0f382c;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .ticker-content {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-right: 100%;
+            animation: marquee 22s linear infinite;
+            font-size: 0.95rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(100%, 0, 0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            color: var(--dark-gold);
+            font-weight: 800;
+            font-size: 0.9rem;
+            background: var(--light-gold);
+            padding: 4px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+            margin: 12px auto 0;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: var(--light-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gold);
+            font-size: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .leader-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-green), var(--primary-gold));
+        }
+
+        .leader-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--light-gold);
+            color: var(--dark-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 12px;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .leader-role {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            background: var(--light-gold);
+            padding: 3px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .leader-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .leader-quote {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            background: #faf8f5;
+            padding: 10px;
+            border-radius: 8px;
+            border-right: 3px solid var(--primary-gold);
+        }
+
+        .honor-card {
+            background: #ffffff;
+            border: 2px solid #f1e7d0;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .honor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+
+        .honor-badge {
+            background: var(--light-gold);
+            color: var(--dark-gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.5rem;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .honor-grade {
+            color: var(--primary-gold);
+            font-weight: 800;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .creatives-box {
+            background: var(--card-bg);
+            border: 2px dashed var(--primary-gold);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .quiz-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background: var(--accent-green-hover);
+        }
+
+        .certificate-box {
+            display: none;
+            background: #fffdf7;
+            border: 8px double var(--primary-gold);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 25px;
+            border-radius: 12px;
+        }
+
+        .interactive-section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-card h3 {
+            color: var(--accent-green);
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: var(--accent-green);
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fdfbf7;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-gold);
+            background: #ffffff;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .guestbook-list {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-left: 5px;
+        }
+
+        .guestbook-item {
+            background: var(--light-gold);
+            border-radius: 10px;
+            padding: 15px;
+            border-right: 4px solid var(--primary-gold);
+        }
+
+        .guestbook-meta {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .guestbook-msg {
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: var(--accent-green);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-banner-container">
+        <img src="WhatsApp Image 2026-10-02 at 2.17.58 PM.jpeg" alt="شعار الابتدائية الحادية والخمسون الثلاثمائة (351) والروضة الملحقة بها" class="hero-banner-img" onerror="this.src='https://via.placeholder.com/1000x300/f3ebda/8e6812?text=%D8%A7%D9%84%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A%D8%A9+351+%D9%88%D8%A7%D9%84%D8%B1%D9%88%D8%B6%D8%A9+%D8%A7%D9%84%D9%85%D9%84%D8%AD%D9%82%D8%A9+%D8%A8%D9%87%D8%A7';">
+    </div>
+
+    <div class="top-meta-bar">
+        <div class="top-meta-content">
+            <div class="meta-item"><i class="fa-solid fa-newspaper"></i> <span>العدد الأول</span></div>
+            <div class="meta-item"><i class="fa-solid fa-calendar-days"></i> <span>السبت، 3 أكتوبر 2026</span></div>
+            <div class="meta-item"><i class="fa-solid fa-school"></i> <span>الابتدائية الحادية والخمسون الثلاثمائة (351) والروضة الملحقة بها</span></div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="active"><i class="fa-solid fa-house"></i> الصفحة الأولى</a></li>
+                <li class="nav-item"><a href="#leadership"><i class="fa-solid fa-user-tie"></i> كلمة القيادة</a></li>
+                <li class="nav-item"><a href="#honor"><i class="fa-solid fa-star"></i> لوحة المتفوقات</a></li>
+                <li class="nav-item"><a href="#creatives"><i class="fa-solid fa-lightbulb"></i> ركن المبدعات</a></li>
+                <li class="nav-item"><a href="#quiz"><i class="fa-solid fa-award"></i> المسابقة المدرسية</a></li>
+                <li class="nav-item"><a href="#guestbook"><i class="fa-solid fa-comments"></i> بريد القراء وسجل الزوار</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ticker-bar">
+        <div class="ticker-title">إعلانات عاجلة:</div>
+        <div class="ticker-content">
+            <div class="ticker-text">
+                نبارك للجميع انطلاق العدد الأول من الصحيفة الرقمية للابتدائية 351 والروضة الملحقة بها، متمنين لطالباتنا وكادرنا التعليمي دوام التوفيق والتميز &nbsp;&nbsp;&bull;&nbsp;&nbsp; الانضباط المدرسي سر النجاح والتميز.. يسعدنا التزامكم بالحضور المبكر يومياً
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="home">
+        <div class="section-header">
+            <span class="section-tag">الخبر الرئيسي</span>
+            <h2 class="section-title">احتفاء بـ "يوم المعلم" 5 أكتوبر: شكراً لصناع الأجيال وقادة المستقبل</h2>
+        </div>
+
+        <div class="card" style="margin-bottom: 40px; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); background: var(--card-bg);">
+            <div style="width: 100%; text-align: center; background-color: #fdfbf7; padding: 20px 0; border-bottom: 1px solid var(--border-color);">
+                <img src="teacher_day.jpg.jpeg" alt="بطاقة يوم المعلم 5 أكتوبر" style="max-width: 100%; max-height: 550px; height: auto; border-radius: 12px; box-shadow: var(--shadow-sm);" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'card-img-placeholder\' style=\'height: 300px; display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--light-gold); color:var(--dark-gold);\'><i class=\'fa-solid fa-chalkboard-user\' style=\'font-size:3rem; margin-bottom:10px;\'></i><span>[صورة يوم المعلم: teacher_day.jpg.jpeg]</span></div>';">
+            </div>
+            
+            <div class="card-body" style="padding: 30px; text-align: center;">
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 15px; font-family: 'Amiri', serif;">
+                    في يوم المعلم (5 أكتوبر)، نستذكر بكل تقدير واعتزاز كل من علمنا حرفاً..
+                </p>
+                <p class="card-desc" style="font-size: 1.05rem; line-height: 2; color: var(--text-main); max-width: 900px; margin: 0 auto;">
+                    أولئك الذين نذروا أعمارهم لبناء الأجيال ورسم لوحة المستقبل في أوطاننا، فالمعلم هو النور الذي لا ينطفئ والعطاء الذي لا ينقطع.<br>
+                    تتقدم إدارة <strong>الابتدائية الحادية والخمسون والثلاثمائة (351) والروضة الملحقة بها</strong> ببالغ الشكر والتقدير لكل معلمة ومعلم: <br>
+                    <strong style="color: var(--primary-gold); font-size: 1.15rem; display: inline-block; margin-top: 10px;">
+                        "شكراً لصنّاع الأجيال وقادة المستقبل.. دمتم رمز العطاء ومنارة للعلم، وكل عام وأنتم منار الإلهام والعطاء."
+                    </strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img-placeholder"><i class="fa-solid fa-image"></i></div>
+                <div class="card-body">
+                    <h3 class="card-title">[عنوان خبر فرعي 1]</h3>
+                    <p class="card-desc">[أدخل نص الخبر الفرعي الأول هنا]</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-placeholder"><i class="fa-solid fa-image"></i></div>
+                <div class="card-body">
+                    <h3 class="card-title">[عنوان خبر فرعي 2]</h3>
+                    <p class="card-desc">[أدخل نص الخبر الفرعي الثاني هنا]</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-placeholder"><i class="fa-solid fa-image"></i></div>
+                <div class="card-body">
+                    <h3 class="card-title">[عنوان خبر فرعي 3]</h3>
+                    <p class="card-desc">[أدخل نص الخبر الفرعي الثالث هنا]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="leadership">
+        <div class="section-header">
+            <span class="section-tag">منبر القيادة والتوجيه</span>
+            <h2 class="section-title">كلمة القيادة المدرسية والبيئة التعليمية</h2>
+        </div>
+
+        <div class="leadership-grid">
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-user-gear"></i></div>
+                <span class="leader-role">مديرة المدرسة</span>
+                <h3 class="leader-name">أ. هيا القحطاني</h3>
+                <div class="leader-quote">"[أدخل كلمة مديرة المدرسة هيا القحطاني هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-user-check"></i></div>
+                <span class="leader-role">الوكيلة الطلابية</span>
+                <h3 class="leader-name">أ. حنان القحطاني</h3>
+                <div class="leader-quote">"[أدخل كلمة الوكيلة الطلابية حنان القحطاني هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-book-open-reader"></i></div>
+                <span class="leader-role">الوكيلة التعليمية والمدرسية</span>
+                <h3 class="leader-name">أ. منيرة المعاوي</h3>
+                <div class="leader-quote">"[أدخل كلمة الوكيلة منيرة المعاوي هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-heart"></i></div>
+                <span class="leader-role">المرشدة الطلابية</span>
+                <h3 class="leader-name">أ. سارة العتيبي</h3>
+                <div class="leader-quote">"[أدخل توجيه المرشدة الطلابية سارة العتيبي هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-hands-holding-child"></i></div>
+                <span class="leader-role">رائدة النشاط</span>
+                <h3 class="leader-name">أ. فوزية العمري</h3>
+                <div class="leader-quote">"[أدخل كلمة رائدة النشاط فوزية العمري هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="leader-role">منسقة الأمن والسلامة</span>
+                <h3 class="leader-name">أ. عزة الغامدي</h3>
+                <div class="leader-quote">"[أدخل إرشادات الأمن والسلامة لأ. عزة الغامدي هنا]"</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-avatar"><i class="fa-solid fa-notes-medical"></i></div>
+                <span class="leader-role">الموجهة الصحية</span>
+                <h3 class="leader-name">أ. وداد المطيري</h3>
+                <div class="leader-quote">"[أدخل الإرشادات والرسالة الصحية لأ. وداد المطيري هنا]"</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="honor">
+        <div class="section-header">
+            <span class="section-tag">حصاد التميز</span>
+            <h2 class="section-title">لوحة المتفوقات والمتميزات (الصف الأول - السادس)</h2>
+        </div>
+
+        <div class="cards-grid">
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-star"></i></div>
+                <div class="honor-grade">الصف الأول الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التفوق الدراسي والتميز السلوكي</p>
+            </div>
+
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-medal"></i></div>
+                <div class="honor-grade">الصف الثاني الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التفوق الدراسي والانضباط</p>
+            </div>
+
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-award"></i></div>
+                <div class="honor-grade">الصف الثالث الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التفوق والأداء المتميز</p>
+            </div>
+
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-crown"></i></div>
+                <div class="honor-grade">الصف الرابع الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التميز الدراسي والمشاركة الفعالة</p>
+            </div>
+
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-trophy"></i></div>
+                <div class="honor-grade">الصف الخامس الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التفوق الدراسي والأنشطة</p>
+            </div>
+
+            <div class="honor-card">
+                <div class="honor-badge"><i class="fa-solid fa-gem"></i></div>
+                <div class="honor-grade">الصف السادس الابتدائي</div>
+                <h3 class="card-title">[اسم الطالبة المتفوقة]</h3>
+                <p class="card-desc">التفوق الدراسي والقيادة الطلابية</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="creatives">
+        <div class="section-header">
+            <span class="section-tag">إبداعات واعدة</span>
+            <h2 class="section-title">ركن المبدعات</h2>
+        </div>
+
+        <div class="creatives-box">
+            <p style="font-size: 1.1rem; color: var(--accent-green); font-weight: bold;">[سيتم إدراج إبداعات وأعمال طالباتنا المبدعات هنا قريباً]</p>
+        </div>
+    </div>
+
+    <div class="container" id="quiz">
+        <div class="section-header">
+            <span class="section-tag">تحدي المهارات</span>
+            <h2 class="section-title">المسابقة المدرسية التفاعلية</h2>
+        </div>
+
+        <div class="quiz-container">
+            <div id="quiz-intro" style="text-align: center;">
+                <h3 style="color: var(--accent-green); margin-bottom: 15px;">اختبري معلوماتك واحصلي على شهادة التميز!</h3>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">ادخلي اسمكِ الثلاثي وابدئي المسابقة للحصول على شهادة تهنئة رقمية موقعة فوراً.</p>
+                <input type="text" id="student-name" placeholder="أدخلي اسمكِ الكريم هنا..." style="width: 80%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 1rem;">
+                <br>
+                <button class="quiz-btn" onclick="startQuiz()">ابدئي التحدي الآن</button>
+            </div>
+
+            <div id="quiz-box" style="display: none; text-align: center;">
+                <h4 id="question-text" style="font-size: 1.3rem; margin-bottom: 20px; color: var(--accent-green);">سؤال المسابقة هنا...</h4>
+                <div id="options-container" style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto 20px;"></div>
+            </div>
+
+            <div id="certificate" class="certificate-box">
+                <i class="fa-solid fa-ribbon" style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 10px;"></i>
+                <h3 style="font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--accent-green);">شهادة تميز وتفوق</h3>
+                <p style="margin: 15px 0;">تمنح إدارة <strong>الابتدائية الحادية والخمسون الثلاثمائة (351) والروضة الملحقة بها</strong> الطالبة المبدعة:</p>
+                <h2 id="cert-name" style="color: var(--primary-gold); font-family: 'Amiri', serif; font-size: 2.2rem; margin: 10px 0;">[اسم الطالبة]</h2>
+                <p>لإتمامها المسابقة المدرسية بنجاح والحصول على الدرجة الكاملة.</p>
+                <div style="margin-top: 30px; display: flex; justify-content: space-around; font-weight: bold; color: var(--accent-green);">
+                    <div>رائدة النشاط: أ. فوزية العمري</div>
+                    <div>مديرة المدرسة: أ. هيا القحطاني</div>
+                </div>
+                <button class="quiz-btn" style="margin-top: 25px; background: var(--dark-gold);" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة الشهادة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="guestbook">
+        <div class="section-header">
+            <span class="section-tag">التواصل والتفاعل</span>
+            <h2 class="section-title">بريد القراء وسجل الزوار</h2>
+        </div>
+
+        <div class="interactive-section-grid">
+            <div class="form-card">
+                <h3><i class="fa-solid fa-paper-plane"></i> أرسلي رسالتك (بريد القراء)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">شاركينا بمقترحاتك، استفساراتك، أو كلمتكِ للصحيفة المدرسية.</p>
+                <form id="mailForm" onsubmit="submitMail(event)">
+                    <div class="form-group">
+                        <label for="mailName">الاسم الكامل:</label>
+                        <input type="text" id="mailName" class="form-control" placeholder="أدخلي اسمكِ هنا..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailRole">الصف / الصفة:</label>
+                        <input type="text" id="mailRole" class="form-control" placeholder="مثال: طالبة بالصف السادس / ولي أمر" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailMessage">نص الرسالة:</label>
+                        <textarea id="mailMessage" class="form-control" placeholder="اكتبي رسالتكِ أو اقتراحكِ هنا..." required></textarea>
+                    </div>
+                    <button type="submit" class="quiz-btn" style="width: 100%;"><i class="fa-solid fa-envelope"></i> إرسال الرسالة</button>
+                </form>
+            </div>
+
+            <div class="form-card">
+                <h3><i class="fa-solid fa-book-bookmark"></i> سجل الزوار والتبريكات</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">اتركي كلمة أو انطباعكِ في سجل الزوار لتبقى ذكرى جميلة:</p>
+                
+                <form id="guestbookForm" onsubmit="addGuestbookEntry(event)">
+                    <div style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                        <input type="text" id="gbName" class="form-control" style="flex: 1; min-width: 120px;" placeholder="الاسم" required>
+                        <input type="text" id="gbMsg" class="form-control" style="flex: 2; min-width: 180px;" placeholder="كلمتك أو انطباعك..." required>
+                    </div>
+                    <button type="submit" class="quiz-btn" style="width: 100%; padding: 8px 15px; font-size: 0.95rem;"><i class="fa-solid fa-plus"></i> إضافة كلمة للسجل</button>
+                </form>
+
+                <div class="guestbook-list" id="guestbookEntries">
+                    <!-- سيتم تحميل البيانات تلقائياً بواسطة السكريبت -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - صحيفة الابتدائية الحادية والخمسون الثلاثمائة (351) والروضة الملحقة بها الرقمية</p>
+    </footer>
+
+    <script>
+        // بيانات التبريكات الافتراضية محددة هنا مسبقاً لتضمن الظهور الفوري
+        const initialMessages = [
+            {
+                name: "أ. عزة الغامدي (منسقة الأمن والسلامة)",
+                type: "تهنئة",
+                msg: "ألف مبروك تدشين العدد الأول من الصحيفة الرقمية المتميزة، سائلةً الله عز وجل للجميع دوام التوفيق والنجاح."
+            },
+            {
+                name: "أ. هيا القحطاني (مديرة المدرسة)",
+                type: "الافتتاح",
+                msg: "نبارك انطلاق العدد الأول من الصحيفة الرقمية المتميزة، شكراً لكل المشاركات والقائمين عليها."
+            }
+        ];
+
+        // دالة لعرض سجل التبريكات عند تحميل الصفحة
+        function renderGuestbook() {
+            const list = document.getElementById('guestbookEntries');
+            list.innerHTML = '';
+            initialMessages.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'guestbook-item';
+                div.innerHTML = `
+                    <div class="guestbook-meta">
+                        <span>${item.name}</span>
+                        <span>${item.type}</span>
+                    </div>
+                    <div class="guestbook-msg">${item.msg}</div>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        // تشغيل عرض التبريكات عند فتح الصفحة مباشرة
+        window.onload = function() {
+            renderGuestbook();
+        };
+
+        // دالة إضافة تبريكة جديدة من نموذج المستخدم
+        function addGuestbookEntry(e) {
+            e.preventDefault();
+            const name = document.getElementById('gbName').value.trim();
+            const msg = document.getElementById('gbMsg').value.trim();
+
+            if(name && msg) {
+                initialMessages.unshift({
+                    name: name,
+                    type: "الآن",
+                    msg: msg
+                });
+                renderGuestbook();
+                document.getElementById('guestbookForm').reset();
+            }
+        }
+
+        // المسابقة المدرسية
+        let currentStudentName = "";
+        
+        function startQuiz() {
+            const nameInput = document.getElementById('student-name').value.trim();
+            if(!nameInput) {
+                alert('لطفاً أدخلي اسمكِ الثلاثي قبل البدء.');
+                return;
+            }
+            currentStudentName = nameInput;
+            document.getElementById('quiz-intro').style.display = 'none';
+            document.getElementById('quiz-box').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const qText = document.getElementById('question-text');
+            const options = document.getElementById('options-container');
+            
+            qText.innerText = "في أي تاريخ من كل عام يُحتفل باليوم العالمي للمعلم؟";
+            options.innerHTML = `
+                <button class="quiz-btn" style="background:#fdfbf7; color:var(--accent-green); border:1px solid var(--border-color);" onclick="finishQuiz(true)">5 أكتوبر</button>
+                <button class="quiz-btn" style="background:#fdfbf7; color:var(--accent-green); border:1px solid var(--border-color);" onclick="finishQuiz(false)">1 ديسمبر</button>
+                <button class="quiz-btn" style="background:#fdfbf7; color:var(--accent-green); border:1px solid var(--border-color);" onclick="finishQuiz(false)">23 سبتمبر</button>
+            `;
+        }
+
+        function finishQuiz(isCorrect) {
+            if(isCorrect) {
+                document.getElementById('quiz-box').style.display = 'none';
+                document.getElementById('cert-name').innerText = currentStudentName;
+                document.getElementById('certificate').style.display = 'block';
+            } else {
+                alert('إجابة غير صحيحة، حاولي مرة أخرى!');
+            }
+        }
+
+        function submitMail(e) {
+            e.preventDefault();
+            alert('شكراً لكِ! تم إرسال رسالتكِ بنجاح إلى إدارة الصحيفة المدرسية.');
+            document.getElementById('mailForm').reset();
+        }
+    </script>
+</body>
+</html>
